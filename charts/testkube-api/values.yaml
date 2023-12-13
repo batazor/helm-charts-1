@@ -53,7 +53,7 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
-## Custom job-template.yml that will passed to Testkube API
+## Custom job-template.yml that will be passed to Testkube API
 configValues: ""
 
 ## Testkube API Deployment parameters
@@ -69,6 +69,11 @@ cloud:
   envId: ""
   ## true if migration from OSS
   migrate: ""
+  tls:
+    ## Toggle should the connection to Agent API in Cloud/Enterprise use secure GRPC (GRPCS) (if false, it will use insecure GRPC)
+    enabled: true
+    ## Toggle should the client skip verifying the Agent API server cert in Cloud/Enterprise
+    skipVerify: false
   ## Retrieve cloud information from existing secret
   existingSecret:
     ## Name of the secret. If set, this will be used instead of the above values
@@ -117,7 +122,7 @@ templates:
   ## Base64 encoded PVC Container template
   pvcContainer: ""
    ## Base64 encoded Slave Pod template
-  slavePod: "" 
+  slavePod: ""
 
 ## base64 encoded executors.json alike data
 executors: ""
